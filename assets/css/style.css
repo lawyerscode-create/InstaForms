@@ -862,26 +862,39 @@
 
 /* compact variant — used inline within the hero (e.g. "Browse Legal Forms") */
 .jf-scene--compact{
-  max-width:340px;
+  max-width:260px;
   margin:18px auto 0;
 }
 .jf-box--compact{
-  padding:28px 22px;
+  padding:26px 30px;
+  border-radius:50%;
+  aspect-ratio:1.5 / 1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.jf-box--compact::before{
+  border-radius:50%;
+}
+.jf-box--compact .jf-box-inner{
+  gap:6px;
 }
 .jf-box--compact .jf-icon{
-  width:44px; height:44px;
-  font-size:20px;
+  width:34px; height:34px;
+  font-size:16px;
 }
 .jf-box--compact .jf-box-title{
-  font-size:19px;
+  font-size:15px;
 }
 .jf-box--compact .jf-box-sub{
-  font-size:13.5px;
-  max-width:260px;
+  font-size:11px;
+  max-width:170px;
+  line-height:1.3;
 }
 .jf-box--compact .jf-cta{
-  font-size:10.5px;
-  padding:7px 14px;
+  font-size:9px;
+  padding:5px 11px;
+  margin-top:2px;
 }
 
 @media (max-width: 560px){
