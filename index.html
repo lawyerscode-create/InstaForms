@@ -7,8 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8372409228499893"
-     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -78,6 +76,52 @@ Generate Court-Ready Documents in Minutes.
 </div>
 
 </section>
+
+<!-- JUDGEMENT FINDER — 3D LAUNCH BOX -->
+<section class="jf-launch" id="judgement-finder-launch">
+  <span class="eyebrow">New · AI-Matched Precedent</span>
+  <h2>Find the <em>judgement</em> that fits your case.</h2>
+
+  <div class="jf-scene">
+    <a href="judgementfinder.html" class="jf-box" id="jfBox" aria-label="Open Judgement Finder">
+      <div class="jf-box-inner">
+        <div class="jf-icon">⚖️</div>
+        <div class="jf-box-title">Judgement <em>Finder</em></div>
+        <p class="jf-box-sub">Describe your facts, and we'll surface the closest-matching judgements and precedent — instantly.</p>
+        <span class="jf-cta">Open the Finder →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<script>
+(function(){
+  var box = document.getElementById('jfBox');
+  if(!box) return;
+  var scene = box.parentElement;
+  var maxTilt = 12;
+
+  function onMove(e){
+    var rect = scene.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width;
+    var y = (e.clientY - rect.top) / rect.height;
+    var rotY = (x - 0.5) * (maxTilt * 2);
+    var rotX = (0.5 - y) * (maxTilt * 2);
+    box.style.transform = 'rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateZ(0)';
+  }
+  function reset(){
+    box.style.transform = 'rotateX(0deg) rotateY(0deg)';
+  }
+
+  scene.addEventListener('mousemove', onMove);
+  scene.addEventListener('mouseleave', reset);
+
+  box.addEventListener('touchstart', function(){
+    box.style.transform = 'rotateX(6deg) rotateY(-6deg)';
+  }, {passive:true});
+  box.addEventListener('touchend', reset);
+})();
+</script>
 
 <!-- INTRO -->
 <section class="intro" id="about">
