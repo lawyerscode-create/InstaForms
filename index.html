@@ -38,9 +38,16 @@ Generate Court-Ready Documents in Minutes.
 </div>
 
 </div>
-<a href="#library" class="btn solid">
-📚 Browse Legal Forms
-</a>
+<div class="jf-scene jf-scene--compact">
+  <a href="#library" class="jf-box jf-box--compact" id="browseBox" aria-label="Browse Legal Forms">
+    <div class="jf-box-inner">
+      <div class="jf-icon">📚</div>
+      <div class="jf-box-title">Browse <em>Legal Forms</em></div>
+      <p class="jf-box-sub">100+ court-ready drafts, organised shelf by shelf.</p>
+      <span class="jf-cta">Enter the Library →</span>
+    </div>
+  </a>
+</div>
 
 
 </div>
@@ -96,30 +103,34 @@ Generate Court-Ready Documents in Minutes.
 
 <script>
 (function(){
-  var box = document.getElementById('jfBox');
-  if(!box) return;
-  var scene = box.parentElement;
-  var maxTilt = 12;
+  function init3DBox(box){
+    if(!box) return;
+    var scene = box.parentElement;
+    var maxTilt = 12;
 
-  function onMove(e){
-    var rect = scene.getBoundingClientRect();
-    var x = (e.clientX - rect.left) / rect.width;
-    var y = (e.clientY - rect.top) / rect.height;
-    var rotY = (x - 0.5) * (maxTilt * 2);
-    var rotX = (0.5 - y) * (maxTilt * 2);
-    box.style.transform = 'rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateZ(0)';
+    function onMove(e){
+      var rect = scene.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      var rotY = (x - 0.5) * (maxTilt * 2);
+      var rotX = (0.5 - y) * (maxTilt * 2);
+      box.style.transform = 'rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateZ(0)';
+    }
+    function reset(){
+      box.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    }
+
+    scene.addEventListener('mousemove', onMove);
+    scene.addEventListener('mouseleave', reset);
+
+    box.addEventListener('touchstart', function(){
+      box.style.transform = 'rotateX(6deg) rotateY(-6deg)';
+    }, {passive:true});
+    box.addEventListener('touchend', reset);
   }
-  function reset(){
-    box.style.transform = 'rotateX(0deg) rotateY(0deg)';
-  }
 
-  scene.addEventListener('mousemove', onMove);
-  scene.addEventListener('mouseleave', reset);
-
-  box.addEventListener('touchstart', function(){
-    box.style.transform = 'rotateX(6deg) rotateY(-6deg)';
-  }, {passive:true});
-  box.addEventListener('touchend', reset);
+  init3DBox(document.getElementById('jfBox'));
+  init3DBox(document.getElementById('browseBox'));
 })();
 </script>
 
