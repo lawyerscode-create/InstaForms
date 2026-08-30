@@ -860,6 +860,30 @@
   color:var(--mahogany-950);
 }
 
+/* compact variant — used inline within the hero (e.g. "Browse Legal Forms") */
+.jf-scene--compact{
+  max-width:340px;
+  margin:18px auto 0;
+}
+.jf-box--compact{
+  padding:28px 22px;
+}
+.jf-box--compact .jf-icon{
+  width:44px; height:44px;
+  font-size:20px;
+}
+.jf-box--compact .jf-box-title{
+  font-size:19px;
+}
+.jf-box--compact .jf-box-sub{
+  font-size:13.5px;
+  max-width:260px;
+}
+.jf-box--compact .jf-cta{
+  font-size:10.5px;
+  padding:7px 14px;
+}
+
 @media (max-width: 560px){
   .jf-box{ padding:36px 22px; }
   .jf-box-title{ font-size:20px; }
